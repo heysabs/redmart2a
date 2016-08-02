@@ -25,8 +25,8 @@
   <aside class="col-md-6">
     <% if @product.reviews.any? %>
      <h3>Reviews (<%= @product.reviews.count %>)</h3>
-    <ol class="reviews">
-      <%= render @reviews %>
+    <ol id="reviews">
+      <%= render @product.reviews %>
     </ol>
     <% end %>
   </aside>
