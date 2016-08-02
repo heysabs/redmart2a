@@ -16,8 +16,15 @@ Rails.application.routes.draw do
   post   '/login',   to: 'sessions#create'
   delete '/logout',  to: 'sessions#destroy'
 
+  post  '/products/:id/reviews/new', to: 'reviews#create'
+
+  resources :products do
+    resources :reviews
+  end
+
   resources :users
   resources :products
+  resources :reviews,          only: [:create, :destroy]
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 

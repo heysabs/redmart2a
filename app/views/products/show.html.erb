@@ -10,3 +10,24 @@
     </section>
   </aside>
 </div>
+
+<% if logged_in? %>
+  <div class="row">
+    <aside class="col-md-6">
+      <section class="review_form">
+        <%= render 'shared/review_form' %>
+      </section>
+    </aside>
+  </div>
+<% end %>
+
+<div class="row">
+  <aside class="col-md-6">
+    <% if @product.reviews.any? %>
+     <h3>Reviews (<%= @product.reviews.count %>)</h3>
+    <ol class="reviews">
+      <%= render @reviews %>
+    </ol>
+    <% end %>
+  </aside>
+</div>

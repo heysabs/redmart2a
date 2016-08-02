@@ -1,8 +1,11 @@
 class ProductsController < ApplicationController
-  # before_action :admin_user,     only: [:edit, :update, :destroy]
+  before_action :admin_user,     only: [:edit, :update, :destroy]
 
   def show
     @product = Product.find(params[:id])
+    @review = current_user.reviews.build if logged_in?
+    @reviews = Review.paginate(page: params[:page])
+
   end
 
   def new

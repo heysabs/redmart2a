@@ -1,0 +1,7 @@
+<%= form_for(@review, url: new_product_review_path(params[:id])) do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
+  <div class="field">
+    <%= f.text_area :content, placeholder: "Write new review..." %>
+  </div>
+  <%= f.submit "Post", class: "btn btn-primary" %>
+<% end %>
